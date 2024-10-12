@@ -1,7 +1,8 @@
 #alias
+#
 source ~/.bash_aliases
 source ~/.bash_profile
-source /Users/epi/emsdk/emsdk_env.sh
+# source /Users/epi/emsdk/emsdk_env.sh
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -9,6 +10,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export OPENAI_API_KEY="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"
+export HOMEBREW_NO_AUTO_UPDATE="1"
 export CC="/opt/homebrew/opt/llvm/bin/clang"
 export CXX="/opt/homebrew/opt/llvm/bin/clang++"
 export LDFLAGS="-L/opt/homebrew/opt/libomp/lib -lomp"
@@ -21,6 +24,9 @@ export OpenMP_libomp_LIBRARY="/opt/local/lib/libomp.dylib"
 export OpenMP_CXX_FLAGS="-Xpreprocessor -L/opt/local/lib/libomp.dylib -I/opt/local/include -fopenmp"
 export OpenMP_CXX_LIB_NAMES="libomp"
 export OpenMP_C_FLAGS="-Xpreprocessor -L/opt/local/lib/libomp.dylib -I/opt/local/include -fopenmp"
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -127,3 +133,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH=$PATH:/Users/epi/.spicetify
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+eval "$(zoxide init --cmd cd zsh)"

@@ -75,14 +75,15 @@ zstyle ':fzf-tab:*' fzf-flags '--bind=ctrl-f:accept'
 # Aliases
 alias ls='ls --color'
 alias vim='nvim'
+alias v='nvim'
 alias c='clear'
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 #
-source ~/.bash_aliases
 source ~/.bash_profile
+source ~/.env
 # source /Users/epi/emsdk/emsdk_env.sh
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]

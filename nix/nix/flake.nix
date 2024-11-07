@@ -8,7 +8,7 @@
         nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     };
 
-    outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
+    outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew}:
         let
             configuration = { pkgs, config, ... }: {
                 # List packages installed in system profile. To search by name, run:
@@ -17,26 +17,64 @@
                 environment.systemPackages =
                     [ 
                         pkgs.neovim
-                        pkgs.mkalias
                         pkgs.tmux
+
+                        pkgs.mkalias
+                        pkgs.go
+                        pkgs.glslang
+                        pkgs.llvm
+                        pkgs.yarn
+                        # pkgs.python3
+
+                        pkgs.zoxide
+                        pkgs.stow
+                        pkgs.docker
+
+                        pkgs.fd
+                        pkgs.fzf
+                        pkgs.ripgrep
+                        pkgs.htop
+                        pkgs.jq
+                        pkgs.lazygit
+                        pkgs.inetutils
+                        pkgs.putty
+                        pkgs.wget
+
+                        pkgs.clang-tools
+                        pkgs.cmake
+                        pkgs.codespell
+                        pkgs.conan
+                        pkgs.cppcheck
+                        pkgs.doxygen
+                        pkgs.gtest
+                        pkgs.lcov
+                        pkgs.vcpkg
+
+                        pkgs.pngpaste
+                        pkgs.xclip
+                        pkgs.portaudio
+                        pkgs.qemu
+
 
                         # pkgs.hyprland
                         pkgs.alt-tab-macos
                         pkgs.wireshark
+                        pkgs.spicetify-cli
                     ];
                 homebrew = {
                     enable = true;
                     brews = [
-                        "mas"
+                        "libomp"
                     ];
                     casks = [
                         "hammerspoon"
                         "the-unarchiver"
                         "intellij-idea-ce"
-                        "background-music"
                         "rectangle"
                     ];
-                    # onActivation.cleanup = "zap"
+                    onActivation.cleanup = "zap";
+                    onActivation.autoUpdate = true;
+                    onActivation.upgrade = true;
                 };
                 fonts.packages = [
                     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
@@ -82,7 +120,7 @@
                 nixpkgs.hostPlatform = "aarch64-darwin";
             };
         in
-            {
+        {
             # Build darwin flake using:
             # $ darwin-rebuild build --flake .#simple
             darwinConfigurations."Jans-MacBook-Air" = nix-darwin.lib.darwinSystem {

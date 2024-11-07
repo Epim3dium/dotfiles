@@ -77,6 +77,7 @@ alias ls='ls --color'
 alias vim='nvim'
 alias v='nvim'
 alias c='clear'
+alias py='python3'
 
 # Shell integrations
 eval "$(fzf --zsh)"

@@ -67,6 +67,7 @@
                         "libomp"
                     ];
                     casks = [
+                        "docker"
                         "hammerspoon"
                         "the-unarchiver"
                         "intellij-idea-ce"

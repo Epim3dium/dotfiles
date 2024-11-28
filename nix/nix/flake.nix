@@ -76,6 +76,23 @@
                     onActivation.autoUpdate = true;
                     onActivation.upgrade = true;
                 };
+                system.defaults = {
+                    # minimal dock
+                    dock = {
+                        autohide = true;
+                        orientation = "left";
+                        show-process-indicators = false;
+                        show-recents = false;
+                        static-only = true;
+                    };
+                    # a finder that tells me what I want to know and lets me work
+                    finder = {
+                        AppleShowAllExtensions = true;
+                        ShowPathbar = true;
+                        FXEnableExtensionChangeWarning = false;
+                        FXDefaultSearchScope = "clmv";
+                    };
+                };
                 fonts.packages = [
                     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
                 ];

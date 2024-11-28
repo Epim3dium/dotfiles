@@ -72,7 +72,7 @@
                         "intellij-idea-ce"
                         "rectangle"
                     ];
-                    onActivation.cleanup = "zap";
+                    # onActivation.cleanup = "zap";
                     onActivation.autoUpdate = true;
                     onActivation.upgrade = true;
                 };

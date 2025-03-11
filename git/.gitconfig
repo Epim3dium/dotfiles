@@ -1,3 +1,5 @@
 [user]
 	name = Epim3dium
 	email = Epim3dium@protonmail.com
+[credential]
+	helper = store

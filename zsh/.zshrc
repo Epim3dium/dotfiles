@@ -83,9 +83,8 @@ alias py='python3'
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 #
-source ~/.bash_profile
 source ~/.env
-# source /Users/epi/emsdk/emsdk_env.sh
+source ~/code_workspace/libs/VulkanSDK/setup-env.sh
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -93,5 +92,4 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source ~/code_workspace/libs/VulkanSDK/setup-env.sh
 

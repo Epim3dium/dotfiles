@@ -3,3 +3,5 @@
 	email = Epim3dium@protonmail.com
 [credential]
 	helper = store
+[safe]
+	directory = /etc/nixos

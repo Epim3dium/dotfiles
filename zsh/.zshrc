@@ -2,10 +2,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # plugin manager
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 if [[ -f "/opt/homebrew/bin/brew" ]] then
   # If you're using macOS, you'll want this enabled
   eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -34,8 +30,11 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Keybindings
 autoload -U up-line-or-beginning-search
@@ -84,7 +83,6 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 #
 source ~/.env
-source ~/code_workspace/libs/VulkanSDK/setup-env.sh
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.

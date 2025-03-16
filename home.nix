@@ -30,17 +30,28 @@
         # # "Hello, world!" when run.
         pkgs.zsh
         pkgs.fzf
+        pkgs.ripgrep
         pkgs.gnumake
-        pkgs.cmake
-        pkgs.gcc
         pkgs.unzip
         pkgs.stow
         pkgs.tmux
         pkgs.zoxide
 
+        # pkgs.gcc
+        pkgs.clang-tools
+        pkgs.clang
+        pkgs.cmake
+        pkgs.ninja
+
+        pkgs.python312
+        pkgs.lua-language-server
+        pkgs.python312Packages.python-lsp-server
+
         pkgs.alacritty
         pkgs.ollama
+        pkgs.htop
 
+        pkgs.steam
         pkgs.spotify
         pkgs.obsidian
         pkgs.proton-pass
@@ -60,7 +71,7 @@
                 "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
             ];
         };
-        "org/gnome/desktop/wm/keybindings".close = ["<Control>q"];
+        "org/gnome/desktop/wm/keybindings".close = ["<Alt>q"];
         "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
             { 
                 binding = "<Primary><Alt>t";
@@ -164,6 +175,7 @@
             };
         };
     };
+
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;

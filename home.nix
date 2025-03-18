@@ -3,7 +3,6 @@
 {
     imports = [
         inputs.nix-colors.homeManagerModules.default
-        ./modules/spotify.nix
         ./modules/coding.nix
         ./modules/gaming.nix
         ./modules/ollama.nix
@@ -27,6 +26,7 @@
 
         pkgs.obsidian
         pkgs.proton-pass
+        pkgs.spotify
 
     ];
     # # You can also create simple shell scripts directly inside your

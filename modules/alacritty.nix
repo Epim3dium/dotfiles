@@ -23,6 +23,7 @@
                 };
                 size = 12.0;
             };
+            window.opacity = 0.75;
             colors = {
                 primary = {
                     background = "0x2E3440";

@@ -18,11 +18,14 @@
     home.packages = [
         pkgs.gnomeExtensions.tiling-assistant
         pkgs.gnome-screenshot
+        pkgs.gnomeExtensions.hide-top-bar
 
         pkgs.git
         pkgs.neovim
 
         pkgs.htop
+
+        pkgs.gimp
 
         pkgs.obsidian
         pkgs.proton-pass
@@ -55,8 +58,10 @@
                 command = "gnome-screenshot -i";
                 name = "screenshot tool";
             };
-        "org/gnome/desktop/wm/keybindings".switch-to-workspace-left = ["<Control>Left"];
+        "org/gnome/desktop/wm/keybindings".move-to-workspace-left = ["<Shift><Super>Left"];
+        "org/gnome/desktop/wm/keybindings".move-to-workspace-right = ["<Shift><Super>Right"];
         "org/gnome/desktop/wm/keybindings".switch-to-workspace-right = ["<Control>Right"];
+        "org/gnome/desktop/wm/keybindings".switch-to-workspace-left = ["<Control>Left"];
         "org/gnome/shell/extensions/tiling-assistant".tile-right-half =      ["<Control><Alt>Right"];
         "org/gnome/shell/extensions/tiling-assistant".tile-left-half =       ["<Control><Alt>Left"];
         "org/gnome/shell/extensions/tiling-assistant".tile-top-half =        ["<Control><Alt>Up"];

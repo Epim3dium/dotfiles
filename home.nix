@@ -58,8 +58,8 @@
                 command = "gnome-screenshot -i";
                 name = "screenshot tool";
             };
-        "org/gnome/desktop/wm/keybindings".move-to-workspace-left = ["<Shift><Super>Left"];
-        "org/gnome/desktop/wm/keybindings".move-to-workspace-right = ["<Shift><Super>Right"];
+        "org/gnome/desktop/wm/keybindings".move-to-workspace-left = ["<Super><Control>Left"];
+        "org/gnome/desktop/wm/keybindings".move-to-workspace-right = ["<Super><Control>Right"];
         "org/gnome/desktop/wm/keybindings".switch-to-workspace-right = ["<Control>Right"];
         "org/gnome/desktop/wm/keybindings".switch-to-workspace-left = ["<Control>Left"];
         "org/gnome/shell/extensions/tiling-assistant".tile-right-half =      ["<Control><Alt>Right"];

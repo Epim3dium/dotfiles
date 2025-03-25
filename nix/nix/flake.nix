@@ -61,22 +61,23 @@
                         pkgs.wireshark
                         pkgs.spicetify-cli
                     ];
-                homebrew = {
-                    enable = true;
-                    brews = [
-                        "libomp"
-                    ];
-                    casks = [
-                        "docker"
-                        "hammerspoon"
-                        "the-unarchiver"
-                        "intellij-idea-ce"
-                        "rectangle"
-                    ];
-                    # onActivation.cleanup = "zap";
-                    onActivation.autoUpdate = true;
-                    onActivation.upgrade = true;
-                };
+                # homebrew = {
+                #     enable = true;
+                #     brews = [
+                #         "libomp"
+                #     ];
+                #     casks = [
+                #         "android-studio"
+                #         "docker"
+                #         "hammerspoon"
+                #         "the-unarchiver"
+                #         "intellij-idea-ce"
+                #         "rectangle"
+                #     ];
+                #     # onActivation.cleanup = "zap";
+                #     onActivation.autoUpdate = true;
+                #     onActivation.upgrade = true;
+                # };
                 system.defaults = {
                     # minimal dock
                     dock = {

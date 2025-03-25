@@ -11,6 +11,7 @@ mkShell {
         vulkan-validation-layers
         vulkan-tools        # vulkaninfo
         shaderc             # GLSL to SPIRV compiler - glslc
+        glslang
         renderdoc           # Graphics debugger
         tracy               # Graphics profiler
         vulkan-tools-lunarg # vkconfig
@@ -23,7 +24,7 @@ mkShell {
         vulkan-loader
     ];
 
-    LD_LIBRARY_PATH="${glfw}:${vulkan-loader}/lib";
+    LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib:${pkgs.glfw}/lib/cmake";
     VULKAN_SDK = "${vulkan-headers}";
     VK_LAYER_PATH = "${vulkan-validation-layers}/share/vulkan/explicit_layer.d";
     shellHook = ''

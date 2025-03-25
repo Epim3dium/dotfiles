@@ -11,6 +11,10 @@ in pkgs.mkShell {
                 python-pkgs.s3fs
                 python-pkgs.scikit-learn
                 python-pkgs.nltk
+                python-pkgs.geopy
+                python-pkgs.requests
+                python-pkgs.matplotlib
+                python-pkgs.ortools
             ]))
         ];
     }

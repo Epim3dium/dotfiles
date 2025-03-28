@@ -13,9 +13,18 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        # Optional: Declarative tap management
+        homebrew-core = {
+            url = "github:homebrew/homebrew-core";
+            flake = false;
+        };
+        homebrew-cask = {
+            url = "github:homebrew/homebrew-cask";
+            flake = false;
+        };
     };
 
-    outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew}:
+    outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask}:
         let
             configuration = { pkgs, config, ... }: {
                 # List packages installed in system profile. To search by name, run:
@@ -68,8 +77,9 @@
                         pkgs.wireshark
                         pkgs.spicetify-cli
                     ];
-                # homebrew = {
-                #     enable = true;
+                homebrew = {
+                    enable = true;
+                };
                 #     brews = [
                 #         "libomp"
                 #     ];
@@ -103,33 +113,30 @@
                     };
                 };
                 fonts.packages = [
-                    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+                    pkgs.nerd-fonts.jetbrains-mono
                 ];
-                system.activationScripts.applications.text = let
-                    env = pkgs.buildEnv {
-                        name = "system-applications";
-                        paths = config.environment.systemPackages;
-                        pathsToLink = "/Applications";
-                    };
-                in
-                    pkgs.lib.mkForce ''
-          # Set up applications.
-          echo "setting up /Applications..." >&2
-          rm -rf /Applications/Nix\ Apps
-          mkdir -p /Applications/Nix\ Apps
-          find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
-          while read src; do
-            app_name=$(basename "$src")
-            echo "copying $src" >&2
-                        ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
-          done
-                    '';
-
-                # Auto upgrade nix package and the daemon service.
-                services.nix-daemon.enable = true;
-                # nix.package = pkgs.nix;
+          #       system.activationScripts.applications.text = let
+          #           env = pkgs.buildEnv {
+          #               name = "system-applications";
+          #               paths = config.environment.systemPackages;
+          #               pathsToLink = "/Applications";
+          #           };
+          #       in
+          #           pkgs.lib.mkForce ''
+          # # Set up applications.
+          # echo "setting up /Applications..." >&2
+          # rm -rf /Applications/Nix\ Apps
+          # mkdir -p /Applications/Nix\ Apps
+          # find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
+          # while read src; do
+          #   app_name=$(basename "$src")
+          #   echo "copying $src" >&2
+          #               ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
+          # done
+          #           '';
 
                 # Necessary for using flakes on this system.
+
                 nix.settings.experimental-features = "nix-command flakes";
 
                 # Enable alternative shell support in nix-darwin.

@@ -28,6 +28,7 @@
         pkgs.gimp
 
         pkgs.obsidian
+        pkgs.discord
         pkgs.proton-pass
         pkgs.spotify
 

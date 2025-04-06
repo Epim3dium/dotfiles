@@ -4,6 +4,8 @@ in pkgs.mkShell {
         packages = [
             pkgs.python3
             (pkgs.python3.withPackages (python-pkgs: [
+                python-pkgs.scikit-image
+                python-pkgs.pydicom
                 python-pkgs.pandas
                 python-pkgs.requests
                 python-pkgs.numpy

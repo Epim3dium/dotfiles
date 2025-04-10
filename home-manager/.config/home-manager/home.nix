@@ -61,6 +61,8 @@
             };
         "org/gnome/desktop/wm/keybindings".move-to-workspace-left = ["<Super><Control>Left"];
         "org/gnome/desktop/wm/keybindings".move-to-workspace-right = ["<Super><Control>Right"];
+        "org/gnome/desktop/wm/keybindings".move-to-monitor-left = ["<Super><Shift>Left"];
+        "org/gnome/desktop/wm/keybindings".move-to-monitor-right = ["<Super><Shift>Right"];
         "org/gnome/desktop/wm/keybindings".switch-to-workspace-right = ["<Control>Right"];
         "org/gnome/desktop/wm/keybindings".switch-to-workspace-left = ["<Control>Left"];
         "org/gnome/shell/extensions/tiling-assistant".tile-right-half =      ["<Control><Alt>Right"];

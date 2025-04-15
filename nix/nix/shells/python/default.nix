@@ -1,22 +1,26 @@
 let
     pkgs = import <nixpkgs> {};
+    pythonPackages = pkgs.python312Packages;
+    pyPkgs = with pythonPackages; [
+        pycrypto
+        sympy
+        pandas
+        requests
+        numpy
+        jupyter
+        s3fs
+        scikit-learn
+        nltk
+        geopy
+        requests
+        matplotlib
+        ortools
+        streamlit
+        keras
+    ];
 in pkgs.mkShell {
         packages = [
             pkgs.python3
-            (pkgs.python3.withPackages (python-pkgs: [
-                python-pkgs.scikit-image
-                python-pkgs.pydicom
-                python-pkgs.pandas
-                python-pkgs.requests
-                python-pkgs.numpy
-                python-pkgs.jupyter
-                python-pkgs.s3fs
-                python-pkgs.scikit-learn
-                python-pkgs.nltk
-                python-pkgs.geopy
-                python-pkgs.requests
-                python-pkgs.matplotlib
-                python-pkgs.ortools
-            ]))
+            pyPkgs
         ];
     }

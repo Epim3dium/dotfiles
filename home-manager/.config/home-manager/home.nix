@@ -3,6 +3,7 @@
 {
     imports = [
         inputs.nix-colors.homeManagerModules.default
+        ./modules/nginx.nix
         ./modules/coding.nix
         ./modules/gaming.nix
         ./modules/ollama.nix
@@ -59,20 +60,26 @@
                 command = "gnome-screenshot -i";
                 name = "screenshot tool";
             };
-        "org/gnome/desktop/wm/keybindings".move-to-workspace-left = ["<Super><Control>Left"];
-        "org/gnome/desktop/wm/keybindings".move-to-workspace-right = ["<Super><Control>Right"];
-        "org/gnome/desktop/wm/keybindings".move-to-monitor-left = ["<Super><Shift>Left"];
-        "org/gnome/desktop/wm/keybindings".move-to-monitor-right = ["<Super><Shift>Right"];
-        "org/gnome/desktop/wm/keybindings".switch-to-workspace-right = ["<Control>Right"];
-        "org/gnome/desktop/wm/keybindings".switch-to-workspace-left = ["<Control>Left"];
-        "org/gnome/shell/extensions/tiling-assistant".tile-right-half =      ["<Control><Alt>Right"];
-        "org/gnome/shell/extensions/tiling-assistant".tile-left-half =       ["<Control><Alt>Left"];
-        "org/gnome/shell/extensions/tiling-assistant".tile-top-half =        ["<Control><Alt>Up"];
-        "org/gnome/shell/extensions/tiling-assistant".tile-bottom-half =     ["<Control><Alt>Down"];
-        "org/gnome/shell/extensions/tiling-assistant".tile-topleft-quarter=  ["<Shift><Control><Alt>Left"];
-        "org/gnome/shell/extensions/tiling-assistant".tile-topright-quarter= ["<Shift><Control><Alt>Right"];
-        "org/gnome/shell/extensions/tiling-assistant".tile-bottomleft-quarter=  ["<Super><Control><Alt>Left"];
-        "org/gnome/shell/extensions/tiling-assistant".tile-bottomright-quarter= ["<Super><Control><Alt>Right"];
+        "org/gnome/desktop/wm/keybindings" = {
+            move-to-workspace-left = ["<Super><Control>Left"];
+            move-to-workspace-right = ["<Super><Control>Right"];
+            move-to-monitor-left = ["<Super><Shift>Left"];
+            move-to-monitor-right = ["<Super><Shift>Right"];
+            switch-to-workspace-right = ["<Control>Right"];
+            switch-to-workspace-left = ["<Control>Left"];
+            switch-windows = ["<Alt>Tab"];
+            switch-windows-backward = ["<Shift><Alt>Tab"];
+        };
+        "org/gnome/shell/extensions/tiling-assistant" = {
+            tile-right-half =      ["<Control><Alt>Right"];
+            tile-left-half =       ["<Control><Alt>Left"];
+            tile-top-half =        ["<Control><Alt>Up"];
+            tile-bottom-half =     ["<Control><Alt>Down"];
+            tile-topleft-quarter=  ["<Shift><Control><Alt>Left"];
+            tile-topright-quarter= ["<Shift><Control><Alt>Right"];
+            tile-bottomleft-quarter=  ["<Super><Control><Alt>Left"];
+            tile-bottomright-quarter= ["<Super><Control><Alt>Right"];
+        };
     };
     home.file = {
         # # Building this configuration will create a copy of 'dotfiles/screenrc' in

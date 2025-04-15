@@ -15,6 +15,8 @@ mkShell {
         renderdoc           # Graphics debugger
         tracy               # Graphics profiler
         vulkan-tools-lunarg # vkconfig
+        valgrind
+        kdePackages.kcachegrind
     ];
 
     buildInputs = with pkgs; [

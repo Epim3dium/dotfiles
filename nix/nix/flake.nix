@@ -8,10 +8,6 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
         nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-        home-manager = {
-            url = "github:nix-community/home-manager";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
 
         # Optional: Declarative tap management
         homebrew-core = {
@@ -85,6 +81,7 @@
                     casks = [
                         "android-studio"
                         "android-commandlinetools"
+                        "android-platform-tools"
                         "docker"
                         "hammerspoon"
                         "the-unarchiver"

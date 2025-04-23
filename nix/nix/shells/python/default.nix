@@ -7,7 +7,7 @@ let
         pandas
         requests
         numpy
-        jupyter
+        # jupyter
         s3fs
         scikit-learn
         nltk
@@ -20,6 +20,9 @@ let
     ];
 in pkgs.mkShell {
         packages = [
+            (pkgs.python3.withPackages (python-pkgs: [
+                python-pkgs.jupyter
+            ]))
             pkgs.python3
             pyPkgs
         ];

@@ -2,14 +2,17 @@ let
     pkgs = import <nixpkgs> {};
     pythonPackages = pkgs.python312Packages;
     pyPkgs = with pythonPackages; [
+        pydicom
         pycrypto
         sympy
         pandas
         requests
+        numba
         numpy
         # jupyter
         s3fs
         scikit-learn
+        scikit-image
         nltk
         geopy
         requests
@@ -17,6 +20,7 @@ let
         ortools
         streamlit
         keras
+        tkinter
     ];
 in pkgs.mkShell {
         packages = [

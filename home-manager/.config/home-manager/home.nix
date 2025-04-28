@@ -3,7 +3,6 @@
 {
     imports = [
         inputs.nix-colors.homeManagerModules.default
-        ./modules/nginx.nix
         ./modules/coding.nix
         ./modules/gaming.nix
         ./modules/ollama.nix

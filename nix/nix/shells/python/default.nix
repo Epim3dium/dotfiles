@@ -2,6 +2,8 @@ let
     pkgs = import <nixpkgs> {};
     pythonPackages = pkgs.python312Packages;
     pyPkgs = with pythonPackages; [
+        tf-keras
+        torch
         pydicom
         pycrypto
         sympy
@@ -21,6 +23,8 @@ let
         streamlit
         keras
         tkinter
+        transformers
+        sentencepiece
     ];
 in pkgs.mkShell {
         packages = [

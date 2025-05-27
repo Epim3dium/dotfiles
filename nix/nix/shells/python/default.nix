@@ -2,8 +2,10 @@ let
     pkgs = import <nixpkgs> {};
     pythonPackages = pkgs.python312Packages;
     pyPkgs = with pythonPackages; [
+        pip
         tf-keras
         torch
+        spacy
         pydicom
         pycrypto
         sympy
@@ -34,4 +36,5 @@ in pkgs.mkShell {
             pkgs.python3
             pyPkgs
         ];
+
     }

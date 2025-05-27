@@ -26,6 +26,7 @@
         pkgs.htop
 
         pkgs.gimp
+        pkgs.mpv
 
         pkgs.obsidian
         # pkgs.discord

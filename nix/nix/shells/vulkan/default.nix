@@ -22,6 +22,7 @@ mkShell {
     buildInputs = with pkgs; [
         glm
         glfw
+        sfml
         freetype
         vulkan-loader
     ];
@@ -29,8 +30,9 @@ mkShell {
     LD_LIBRARY_PATH = "${pkgs.vulkan-loader}/lib:${pkgs.glfw}/lib/cmake";
     VULKAN_SDK = "${vulkan-headers}";
     VK_LAYER_PATH = "${vulkan-validation-layers}/share/vulkan/explicit_layer.d";
+    SFML_PATH = "${sfml}/lib/cmake";
     shellHook = ''
         # Prepend or append directories to the PATH
-        export PATH="$PATH:$LD_LIBRARY_PATH"
+        export PATH="$PATH:$LD_LIBRARY_PATH:$SFML_PATH"
     '';
 }
